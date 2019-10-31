@@ -5,7 +5,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import PageObjects.HomePage;
-import PageObjects.LogOut;
 import PageObjects.SignUp;
 
 import junit.framework.Assert;
@@ -13,8 +12,8 @@ import resources.base;
 
 public class ValidateSignUpPage extends base{
 
-	By MyAccount = By.xpath("//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')] ");
-	By SignUp = By.xpath("/html[1]/body[1]/nav[1]/div[1]/div[2]/ul[2]/ul[1]/li[1]/ul[1]/li[2]/a[1]");
+	By MyAccount = By.xpath("//div[@class='dropdown dropdown-login dropdown-tab']//a[@id='dropdownCurrency']");
+	By SignUp = By.linkText("Sign Up");
 	
 	@BeforeTest
 	public void preConditions() throws Exception
@@ -32,12 +31,14 @@ public class ValidateSignUpPage extends base{
 		Assert.assertTrue(v.MyAccount().isDisplayed());
 		driver.findElement(MyAccount).click();
 		driver.findElement(SignUp).click();
-		su.RegistrationPage();
-		Thread.sleep(6000);
-		LogOut l = new LogOut(driver);
-		l.BackToHomePage();
 		
-		log1.info("Successfully verified myaccount button");
+		su.RegistrationPage();
+		/*Thread.sleep(6000);
+		LogOut l = new LogOut(driver);
+		l.BackToHomePage();*/
+		
+		log1.info("Successfully Signup Page");
+		
 	}
 
 }

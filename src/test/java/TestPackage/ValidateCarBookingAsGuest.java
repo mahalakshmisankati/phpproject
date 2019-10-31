@@ -1,7 +1,5 @@
 package TestPackage;
 
-import java.io.IOException;
-
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -20,7 +18,7 @@ public class ValidateCarBookingAsGuest extends base{
 	}
 	
 	@Test
-	public void BookAsGuest() throws IOException
+	public void BookAsGuest() throws Exception
 	{
 		CarSearch c = new CarSearch(driver);
 		c.Search();

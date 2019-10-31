@@ -12,12 +12,15 @@ import resources.base;
 
 public class ValidateLoginPage extends base{
 
-	By MyAccount = By.xpath("//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')] ");
-	By Login = By.xpath("/html[1]/body[1]/nav[1]/div[1]/div[2]/ul[2]/ul[1]/li[1]/ul[1]/li[1]/a[1]");
+	By MyAccount = By.xpath("//div[@class='dropdown dropdown-login dropdown-tab']//a[@id='dropdownCurrency']");
+	By Login = By.linkText("Login");
+	By msg = By.xpath("//h3[@class='text-align-left']");
+	
 	
 	@BeforeTest
 	public void preConditions() throws Exception
 	{
+		
 		driver = initializeDriver();
 		driver.get(prop.getProperty("url"));
 		driver.manage().window().maximize();
@@ -32,10 +35,13 @@ public class ValidateLoginPage extends base{
 		driver.findElement(MyAccount).click();
 		driver.findElement(Login).click();
 		l.LoginPage();
+		Assert.assertEquals("Hi, maha sankati" ,driver.findElement(msg).getText());
+		log1.info("Successfully Logged in");
 		Thread.sleep(6000);
 		LogOut lo = new LogOut(driver);
 		lo.BackToHomePage();
 		
-		log1.info("Successfully verified myaccount button");
+		log1.info("Successfully verified Logout Page");
+		
 	}
 }

@@ -8,7 +8,7 @@ public class HomePage {
 	
 public WebDriver driver;
 	
-	By MyAccount = By.xpath("//ul[@class='nav navbar-nav navbar-right hidden-sm go-left']//a[@class='dropdown-toggle go-text-right'][contains(text(),'My Account')] ");
+	By MyAccount = By.xpath("//div[@class='dropdown dropdown-login dropdown-tab']//a[@id='dropdownCurrency']");
 	
 	public HomePage(WebDriver driver)
 	{

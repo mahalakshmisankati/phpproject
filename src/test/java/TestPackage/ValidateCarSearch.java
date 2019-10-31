@@ -1,7 +1,5 @@
 package TestPackage;
 
-import java.io.IOException;
-
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -19,10 +17,10 @@ public class ValidateCarSearch extends base{
 	}
 	
 	@Test
-	public void CheckCarSearch() throws IOException
+	public void CheckCarSearch() throws Exception
 	{
 		CarSearch c = new CarSearch(driver);
 		c.Search();
-		driver.close();
+		//driver.close();
 	}
 }
